@@ -1,0 +1,15 @@
+curl
+electron
+FFmpeg
+go
+jgit
+julia
+kotlin
+linux
+odoo
+openssl
+php-src
+rails
+swift
+tensorflow
+TypeScript
