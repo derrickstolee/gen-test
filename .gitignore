@@ -1,9 +1,13 @@
+log-*.txt
+merge-*.txt
+topo-*.txt
 android-base
 chromium
 curl
 electron
 FFmpeg
 gerrit
+git
 go
 jgit
 julia

@@ -3,9 +3,12 @@
 for repo in $(cat test-repos.txt)
 do
 	(
+		echo $repo
 		cd $repo
-		
-		for v in 0 1 2 3 4
+		../git/git commit-graph write --reachable --version=0	
+		cp .git/objects/info/commit-graph .git/objects/info/commit-graph.0
+	
+		for v in 1 2 3 4
 		do
 			cp .git/objects/info/commit-graph.0 .git/objects/info/commit-graph
 			../git/git commit-graph write --reachable --version=$v
