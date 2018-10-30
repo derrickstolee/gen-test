@@ -32,6 +32,10 @@ do
 			| grep -oE '[^ ]+$')"
 	done
 
+	LOGFILE=$TESTDIR/topo-compare-$repo-OLD.txt
+	rm -f $LOGFILE
+
+	cp .git/objects/info/commit-graph.0 .git/objects/info/commit-graph
 	GIT_TEST_OLD_PAINT=1 GIT_TR2_PERFORMANCE=$LOGFILE $TESTDIR/git/git log --topo-order -10 $mergeA..$mergeB >/dev/null
 
 	echo "$repo	$mergeB	$mergeA	OLD	$(grep "key:num_walked_explore" $LOGFILE \
