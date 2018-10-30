@@ -55,6 +55,15 @@ To ignore reachability indexes entirely and use the old algorithms
 (reported here as "OLD" values) use the environment variable
 `GIT_TEST_OLD_PAINT=1`.
 
+### Running the tests
+
+To run the tests from a fresh clone of this repository, run
+`init-and-run.sh`. This script does the following:
+
+1. Clone the necessary repos (`clone-repos.sh`)
+2. Build the prototype version of Git
+3. Compute the commit-graph files with different indexes (`create-graphs.sh`)
+4. Run the performance tests: `test-merges.sh`, `topo-order-tests.sh`, `topo-compare-tests.sh`
 
 Reachability Index Versions
 ---------------------------
@@ -137,7 +146,7 @@ Essentially, the felineY order is selected with the goal of swapping
 positions of topologically-independent commits relative to the felinX
 ordering. The resulting reachability index is as follows:
 
-   If felineX(A) < felineY(B), then A cannot reach B.
+   If felineX(A) < felineX(B), then A cannot reach B.
    If felineY(A) < felineY(B), then A cannot reach B.
 
 _Commentary:_ In terms of comparing two commits directly, this index

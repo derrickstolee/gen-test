@@ -16,5 +16,9 @@
 )
 
 (
-	./test-order-tests.sh >topo-order-summary.txt
+	./topo-order-tests.sh >topo-order-summary.txt
+)
+
+(
+	./topo-compare-tests.sh >topo-compare-summary.txt
 )
